@@ -1,0 +1,46 @@
+manifestVersion: 1
+id: extras-shelfmark
+name: Shelfmark
+tagline: Busque e baixe livros e audiolivros de várias fontes num só lugar
+icon: https://raw.githubusercontent.com/calibrain/shelfmark/v1.6.2/src/frontend/public/logo.png
+category: media
+version: "1.6.2"
+port: 8097
+description: >-
+  Shelfmark é um app web para buscar e baixar livros e audiolivros. Ele junta
+  várias fontes numa busca só: Anna's Archive (com espelhos como Z-Library,
+  LibGen e Welib), indexadores do Prowlarr com torrent ou Usenet, canais de IRC
+  e Soulseek.
+
+
+  Nesta instalação, cada livro baixado vai direto para a pasta de entrada do
+  Calibre-Web Automated, que importa o arquivo, ajusta capa e metadados e o
+  coloca na biblioteca.
+
+
+  Downloads por torrent usam a mesma pasta do Transmission (/downloads). Para
+  isso, configure o Prowlarr e o Transmission nas configurações do Shelfmark,
+  usando os endereços http://prowlarr_server_1:9696 e
+  http://transmission_server_1:9091.
+developer: calibrain
+website: https://github.com/calibrain/shelfmark
+submitter: extras
+submission: https://github.com/calibrain/shelfmark
+repo: https://github.com/calibrain/shelfmark
+support: https://github.com/calibrain/shelfmark/issues
+gallery: []
+releaseNotes: >-
+  Shelfmark v1.6.2. Notas completas em
+  https://github.com/calibrain/shelfmark/releases/tag/v1.6.2
+dependencies:
+  - calibre-web-automated
+folderAccess:
+  - id: books
+    name: Destino dos livros
+    note: Deixe sem ligar para usar a pasta de entrada padrão do Calibre-Web Automated. Se você ligar a entrada do CWA a outra pasta, ligue aqui a mesma pasta.
+    mounts:
+      - service: server
+        targetPath: /books
+path: ""
+defaultUsername: ""
+defaultPassword: ""

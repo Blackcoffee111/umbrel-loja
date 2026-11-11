@@ -1,0 +1,37 @@
+manifestVersion: 1
+id: extras-dispatcharr
+name: Dispatcharr
+tagline: Gerencie listas IPTV, guia de programação (EPG) e canais num só lugar
+icon: https://raw.githubusercontent.com/Dispatcharr/Dispatcharr/v0.33.0/frontend/public/logo.png
+category: media
+version: "0.33.0"
+port: 9191
+description: >-
+  Dispatcharr junta suas listas IPTV (M3U e Xtream), organiza os canais, cruza
+  com o guia de programação (EPG) e entrega tudo de volta como uma lista única,
+  um sintonizador HDHomeRun ou uma conta Xtream para Jellyfin, Plex, TiviMate e
+  outros players.
+
+
+  Os links de M3U, EPG e streams ficam abertos na rede local sem o login do
+  Umbrel, porque TVs e players não conseguem fazer esse login. O acesso à
+  interface continua protegido pelo login do próprio Dispatcharr.
+developer: Dispatcharr
+website: https://github.com/Dispatcharr/Dispatcharr
+submitter: extras
+submission: https://github.com/Dispatcharr/Dispatcharr
+repo: https://github.com/Dispatcharr/Dispatcharr
+support: https://github.com/Dispatcharr/Dispatcharr/issues
+gallery: []
+releaseNotes: >-
+  Dispatcharr v0.33.0. Notas completas em
+  https://github.com/Dispatcharr/Dispatcharr/releases/tag/v0.33.0
+dependencies: []
+environment:
+  - name: TZ
+    services:
+      - server
+    note: "Fuso horário do guia e das gravações, no formato IANA (ex.: Europe/Lisbon). Em branco, usa UTC."
+path: ""
+defaultUsername: ""
+defaultPassword: ""

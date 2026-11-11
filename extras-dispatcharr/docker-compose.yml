@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Formato: <app-id>_<serviço>_1
+      APP_HOST: extras-dispatcharr_server_1
+      APP_PORT: 9191
+      # Listas M3U, EPG, HDHomeRun e streams são abertos por TVs e players,
+      # que não fazem o login do Umbrel. O Dispatcharr tem login próprio.
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    # Imagem "AIO": Postgres e Redis dentro do próprio container.
+    # A chave secreta do Django é gerada na primeira execução e fica em /data/jwt.
+    image: ghcr.io/dispatcharr/dispatcharr:0.33.0@sha256:96bc548978c68e684677da7895692eeeefb7f0b2edfa38311dac2b702c61d236
+    restart: on-failure
+    stop_grace_period: 1m
+    shm_size: 1gb
+    mem_limit: 4g
+    environment:
+      DISPATCHARR_ENV: aio
+      REDIS_HOST: localhost
+      CELERY_BROKER_URL: redis://localhost:6379/0
+      DISPATCHARR_LOG_LEVEL: info
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data

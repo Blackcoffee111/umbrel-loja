@@ -1,0 +1,31 @@
+name: Atualizar apps
+
+on:
+  schedule:
+    - cron: "17 5 * * *" # todo dia às 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Procurar versões novas
+        id: atualizar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/atualizar_apps.py
+
+      - name: Commit e push
+        if: steps.atualizar.outputs.mudou == 'true'
+        env:
+          MENSAGEM: ${{ steps.atualizar.outputs.mensagem }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "$MENSAGEM"
+          git push
