@@ -2,9 +2,9 @@ manifestVersion: 1
 id: extras-shelfmark
 name: Shelfmark
 tagline: Busque e baixe livros e audiolivros de várias fontes num só lugar
-icon: https://raw.githubusercontent.com/calibrain/shelfmark/v1.6.2/src/frontend/public/logo.png
+icon: https://raw.githubusercontent.com/calibrain/shelfmark/v1.7.0/src/frontend/public/logo.png
 category: media
-version: "1.6.2"
+version: "1.7.0"
 port: 8097
 description: >-
   Shelfmark é um app web para buscar e baixar livros e audiolivros. Ele junta
@@ -30,8 +30,8 @@ repo: https://github.com/calibrain/shelfmark
 support: https://github.com/calibrain/shelfmark/issues
 gallery: []
 releaseNotes: >-
-  Shelfmark v1.6.2. Notas completas em
-  https://github.com/calibrain/shelfmark/releases/tag/v1.6.2
+  Shelfmark v1.7.0. Notas completas em
+  https://github.com/calibrain/shelfmark/releases/tag/v1.7.0
 dependencies:
   - calibre-web-automated
 folderAccess:
