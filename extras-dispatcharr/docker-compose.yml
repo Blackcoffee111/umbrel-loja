@@ -23,6 +23,12 @@ services:
       REDIS_HOST: localhost
       CELERY_BROKER_URL: redis://localhost:6379/0
       DISPATCHARR_LOG_LEVEL: info
+      # Menos processos para economizar RAM no Umbrel (cada um usa uns 200 MB).
+      # Os padrões são 4 processos web e até 6 de tarefas, para servidores grandes.
+      # Numa casa, 2 processos web (gevent) atendem vários streams ao mesmo tempo,
+      # e 2 de tarefas dão conta das atualizações de EPG e M3U.
+      UWSGI_WORKERS: "2"
+      CELERY_MAX_WORKERS: "2"
       PUID: "1000"
       PGID: "1000"
     volumes:
